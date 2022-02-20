@@ -1,8 +1,8 @@
 ﻿Feature: ApiEvents
-	Simple calculator for adding two numbers
+	
 
 @BankAccountNumberVerification_PositiveScenario
-Scenario: BankAccountVerification_PositiceCase
+Scenario: BankAccountVerification_PositiveCase
 	Given I have API URL https://api-test.afterpay.dev/api/v3/validate/bank-account
 	And the XAuthKey is <XAuthKey>
 	When I verify the AccountNumber <AccountNumber>
@@ -26,4 +26,4 @@ Scenario: BankAccountVerification_NegativeCase
 	Scenarios: 
 	| ScenarioId    | XAuthKey                                 | AccountNumber          | StatusCode |
 	| NoJWTToken    |                                          | GB09HAOE913118080023G3 | 401        |
-	| WrongJWTToken | Q7DaxRnFls6IpwSW1SQ2FaTFOf7UdReAFNoKY688 | GB09HAOE913118080023G3 | 201        |
+	| WrongJWTToken | Q7DaxRnFls6IpwSW1SQ2FaTFOf7UdReAFNoKY688 | GB09HAOE913118080023G3 | 401        |

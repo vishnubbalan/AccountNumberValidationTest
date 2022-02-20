@@ -48,7 +48,7 @@ namespace AccountNumberValidationTest.Specs
         public static void FeatureSetup(Microsoft.VisualStudio.TestTools.UnitTesting.TestContext testContext)
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Specs", "ApiEvents", "\tSimple calculator for adding two numbers", ProgrammingLanguage.CSharp, ((string[])(null)));
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Specs", "ApiEvents", null, ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -91,7 +91,7 @@ namespace AccountNumberValidationTest.Specs
             testRunner.CollectScenarioErrors();
         }
         
-        public virtual void BankAccountVerification_PositiceCase(string scenarioId, string xAuthKey, string accountNumber, string isValid, string statusCode, string[] exampleTags)
+        public virtual void BankAccountVerification_PositiveCase(string scenarioId, string xAuthKey, string accountNumber, string isValid, string statusCode, string[] exampleTags)
         {
             string[] @__tags = new string[] {
                     "BankAccountNumberVerification_PositiveScenario"};
@@ -106,7 +106,7 @@ namespace AccountNumberValidationTest.Specs
             argumentsOfScenario.Add("AccountNumber", accountNumber);
             argumentsOfScenario.Add("isValid", isValid);
             argumentsOfScenario.Add("StatusCode", statusCode);
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("BankAccountVerification_PositiceCase", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("BankAccountVerification_PositiveCase", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
 #line 5
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -147,7 +147,7 @@ this.ScenarioInitialize(scenarioInfo);
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("BankAccountVerification_PositiceCase: ValidAccNumber")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("BankAccountVerification_PositiveCase: ValidAccNumber")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ApiEvents")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("BankAccountNumberVerification_PositiveScenario")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "ValidAccNumber")]
@@ -156,15 +156,15 @@ this.ScenarioInitialize(scenarioInfo);
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:AccountNumber", "GB09HAOE91311808002317")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:isValid", "True")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:StatusCode", "200")]
-        public virtual void BankAccountVerification_PositiceCase_ValidAccNumber()
+        public virtual void BankAccountVerification_PositiveCase_ValidAccNumber()
         {
 #line 5
-this.BankAccountVerification_PositiceCase("ValidAccNumber", "Q7DaxRnFls6IpwSW1SQ2FaTFOf7UdReAFNoKY68L", "GB09HAOE91311808002317", "True", "200", ((string[])(null)));
+this.BankAccountVerification_PositiveCase("ValidAccNumber", "Q7DaxRnFls6IpwSW1SQ2FaTFOf7UdReAFNoKY68L", "GB09HAOE91311808002317", "True", "200", ((string[])(null)));
 #line hidden
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("BankAccountVerification_PositiceCase: WrongAccNumber")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("BankAccountVerification_PositiveCase: WrongAccNumber")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ApiEvents")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("BankAccountNumberVerification_PositiveScenario")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "WrongAccNumber")]
@@ -173,15 +173,15 @@ this.BankAccountVerification_PositiceCase("ValidAccNumber", "Q7DaxRnFls6IpwSW1SQ
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:AccountNumber", "GB09HAOE913118080023G3")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:isValid", "False")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:StatusCode", "200")]
-        public virtual void BankAccountVerification_PositiceCase_WrongAccNumber()
+        public virtual void BankAccountVerification_PositiveCase_WrongAccNumber()
         {
 #line 5
-this.BankAccountVerification_PositiceCase("WrongAccNumber", "Q7DaxRnFls6IpwSW1SQ2FaTFOf7UdReAFNoKY68L", "GB09HAOE913118080023G3", "False", "200", ((string[])(null)));
+this.BankAccountVerification_PositiveCase("WrongAccNumber", "Q7DaxRnFls6IpwSW1SQ2FaTFOf7UdReAFNoKY68L", "GB09HAOE913118080023G3", "False", "200", ((string[])(null)));
 #line hidden
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("BankAccountVerification_PositiceCase: AccNumberExceedLength")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("BankAccountVerification_PositiveCase: AccNumberExceedLength")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ApiEvents")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("BankAccountNumberVerification_PositiveScenario")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "AccNumberExceedLength")]
@@ -190,10 +190,10 @@ this.BankAccountVerification_PositiceCase("WrongAccNumber", "Q7DaxRnFls6IpwSW1SQ
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:AccountNumber", "GB09HAOE93436364436436313118080023G34534534G")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:isValid", "")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:StatusCode", "400")]
-        public virtual void BankAccountVerification_PositiceCase_AccNumberExceedLength()
+        public virtual void BankAccountVerification_PositiveCase_AccNumberExceedLength()
         {
 #line 5
-this.BankAccountVerification_PositiceCase("AccNumberExceedLength", "Q7DaxRnFls6IpwSW1SQ2FaTFOf7UdReAFNoKY68L", "GB09HAOE93436364436436313118080023G34534534G", "", "400", ((string[])(null)));
+this.BankAccountVerification_PositiveCase("AccNumberExceedLength", "Q7DaxRnFls6IpwSW1SQ2FaTFOf7UdReAFNoKY68L", "GB09HAOE93436364436436313118080023G34534534G", "", "400", ((string[])(null)));
 #line hidden
         }
         
@@ -272,11 +272,11 @@ this.BankAccountVerification_NegativeCase("NoJWTToken", "", "GB09HAOE91311808002
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:ScenarioId", "WrongJWTToken")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:XAuthKey", "Q7DaxRnFls6IpwSW1SQ2FaTFOf7UdReAFNoKY688")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:AccountNumber", "GB09HAOE913118080023G3")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:StatusCode", "201")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:StatusCode", "401")]
         public virtual void BankAccountVerification_NegativeCase_WrongJWTToken()
         {
 #line 20
-this.BankAccountVerification_NegativeCase("WrongJWTToken", "Q7DaxRnFls6IpwSW1SQ2FaTFOf7UdReAFNoKY688", "GB09HAOE913118080023G3", "201", ((string[])(null)));
+this.BankAccountVerification_NegativeCase("WrongJWTToken", "Q7DaxRnFls6IpwSW1SQ2FaTFOf7UdReAFNoKY688", "GB09HAOE913118080023G3", "401", ((string[])(null)));
 #line hidden
         }
     }
