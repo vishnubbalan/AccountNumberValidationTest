@@ -47,7 +47,26 @@ namespace AccountNumberValidationTest
         [AfterStep]
         public void InsertReportingSteps()
         {
-            scenario.CreateNode<Given>(ScenarioStepContext.Current.StepInfo.Text);
+            var stepType = ScenarioStepContext.Current.StepInfo.StepDefinitionType.ToString();
+            if(ScenarioContext.Current.TestError == null)
+            {
+                if (stepType == "Given")
+                    scenario.CreateNode<Given>(ScenarioStepContext.Current.StepInfo.Text);
+                else if (stepType == "When")
+                    scenario.CreateNode<When>(ScenarioStepContext.Current.StepInfo.Text);
+                else if (stepType == "Then")
+                    scenario.CreateNode<Then>(ScenarioStepContext.Current.StepInfo.Text);
+            }
+            else if(ScenarioContext.Current.TestError != null)
+            {
+                if (stepType == "Given")
+                    scenario.CreateNode<Given>(ScenarioStepContext.Current.StepInfo.Text).Fail(ScenarioContext.Current.TestError.InnerException.Message);
+                else if (stepType == "When")
+                    scenario.CreateNode<When>(ScenarioStepContext.Current.StepInfo.Text).Fail(ScenarioContext.Current.TestError.InnerException.Message);
+                else if (stepType == "Then")
+                    scenario.CreateNode<Then>(ScenarioStepContext.Current.StepInfo.Text).Fail(ScenarioContext.Current.TestError.InnerException.Message);
+            }
+            
         }
     }
 }
