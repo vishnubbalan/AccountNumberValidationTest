@@ -48,7 +48,7 @@ namespace AccountNumberValidationTest
                 Stream dataStream = webResponse.GetResponseStream();
                 StreamReader responseReader = new StreamReader(dataStream);
                 string response = responseReader.ReadToEnd();
-                responceObj = null;
+                responceObj.statusCode = (int)statusCode;
                 Console.WriteLine(response);
                 Console.WriteLine("Response Code: " + (int)statusCode + " - " + statusCode.ToString());
             }
