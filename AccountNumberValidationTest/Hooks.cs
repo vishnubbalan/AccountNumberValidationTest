@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Gherkin.Ast;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,60 +12,53 @@ namespace AccountNumberValidationTest
     [Binding]
     public class Hooks
     {
-        //private static ExtentTest featureName;
-        //private static ExtentTest scenario;
-        //private static ExtentReports extent;
+        static String test = null;
+        static int total = 0;
+        static int pass = 0;
+        static int fail = 0;
 
-        //[BeforeTestRun]
-        //public static void BeforeTestRunHook()
-        //{
-        //    ExtentHtmlReporter htmlReporter = new ExtentHtmlReporter(@"C:\Users\VB7856\Desktop\AccountNumerValidation\ExtendReport.html");
-        //    htmlReporter.Configuration().Theme = AventStack.ExtentReports.Reporter.Configuration.Theme.Dark;
-        //    extent = new ExtentReports();
-        //    extent.AttachReporter(htmlReporter);
-        //}
+        [BeforeTestRun]
+        public static void BeforeTest()
+        {
+            Logger.InitializeLog();
+            Logger.AddLog("-----------------------------------------");
+            Logger.AddLog("");
+        }
 
-        //[AfterTestRun]
-        //public static void TearDownReports()
-        //{
-        //    extent.Flush();
-        //}
+        [BeforeScenario]
+        public static void BeforeScenario()
+        {
+            test = ScenarioContext.Current.ScenarioInfo.Title;
+            total++;
+            Logger.AddLog("Scenario : " + test);
 
-        //[BeforeFeature]
-        //public static void BeforeFeature()
-        //{
-        //    featureName = extent.CreateTest<Feature>(FeatureContext.Current.FeatureInfo.Title);
-        //}
+        }
 
-        //[BeforeScenario]
-        //public void BeforeScenario()
-        //{
-        //    scenario = featureName.CreateNode<Scenario>(ScenarioContext.Current.ScenarioInfo.Title);
-        //}
+        [AfterScenario]
+        public static void AfterScenario()
+        {
+            string status = ScenarioContext.Current.ScenarioExecutionStatus.ToString();
+            if (status == "OK")
+            {
+                Logger.AddLog("Scenario : " + test + " : PASS");
+                pass++;
+            }
+            else if(status == "TestError")
+            {
+                Logger.AddLog("Scenario : " + test + " : FAILED");
+                fail++;
+            }
+            Logger.AddLog("-----------------------------------------");
+            Logger.AddLog("");
+        }
 
-        //[AfterStep]
-        //public void InsertReportingSteps()
-        //{
-        //    var stepType = ScenarioStepContext.Current.StepInfo.StepDefinitionType.ToString();
-        //    if(ScenarioContext.Current.TestError == null)
-        //    {
-        //        if (stepType == "Given")
-        //            scenario.CreateNode<Given>(ScenarioStepContext.Current.StepInfo.Text);
-        //        else if (stepType == "When")
-        //            scenario.CreateNode<When>(ScenarioStepContext.Current.StepInfo.Text);
-        //        else if (stepType == "Then")
-        //            scenario.CreateNode<Then>(ScenarioStepContext.Current.StepInfo.Text);
-        //    }
-        //    else if(ScenarioContext.Current.TestError != null)
-        //    {
-        //        if (stepType == "Given")
-        //            scenario.CreateNode<Given>(ScenarioStepContext.Current.StepInfo.Text).Fail(ScenarioContext.Current.TestError.InnerException.Message);
-        //        else if (stepType == "When")
-        //            scenario.CreateNode<When>(ScenarioStepContext.Current.StepInfo.Text).Fail(ScenarioContext.Current.TestError.InnerException.Message);
-        //        else if (stepType == "Then")
-        //            scenario.CreateNode<Then>(ScenarioStepContext.Current.StepInfo.Text).Fail(ScenarioContext.Current.TestError.InnerException.Message);
-        //    }
-            
-        //}
+        [AfterTestRun]
+        public static void AfterTest()
+        {
+            Logger.AddLog($"Total Test\t:\t"+total.ToString());
+            Logger.AddLog($"Total Passed\t:\t" + pass.ToString());
+            Logger.AddLog($"Total Failed\t:\t" + fail.ToString());
+            Logger.AddLog("-----------------------------------------");
+        }
     }
 }

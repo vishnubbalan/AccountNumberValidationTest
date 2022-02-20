@@ -272,11 +272,11 @@ this.BankAccountVerification_NegativeCase("NoJWTToken", "", "GB09HAOE91311808002
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:ScenarioId", "WrongJWTToken")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:XAuthKey", "Q7DaxRnFls6IpwSW1SQ2FaTFOf7UdReAFNoKY688")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:AccountNumber", "GB09HAOE913118080023G3")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:StatusCode", "401")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:StatusCode", "201")]
         public virtual void BankAccountVerification_NegativeCase_WrongJWTToken()
         {
 #line 20
-this.BankAccountVerification_NegativeCase("WrongJWTToken", "Q7DaxRnFls6IpwSW1SQ2FaTFOf7UdReAFNoKY688", "GB09HAOE913118080023G3", "401", ((string[])(null)));
+this.BankAccountVerification_NegativeCase("WrongJWTToken", "Q7DaxRnFls6IpwSW1SQ2FaTFOf7UdReAFNoKY688", "GB09HAOE913118080023G3", "201", ((string[])(null)));
 #line hidden
         }
     }

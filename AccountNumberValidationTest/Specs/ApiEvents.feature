@@ -26,4 +26,4 @@ Scenario: BankAccountVerification_NegativeCase
 	Scenarios: 
 	| ScenarioId    | XAuthKey                                 | AccountNumber          | StatusCode |
 	| NoJWTToken    |                                          | GB09HAOE913118080023G3 | 401        |
-	| WrongJWTToken | Q7DaxRnFls6IpwSW1SQ2FaTFOf7UdReAFNoKY688 | GB09HAOE913118080023G3 | 401        |
+	| WrongJWTToken | Q7DaxRnFls6IpwSW1SQ2FaTFOf7UdReAFNoKY688 | GB09HAOE913118080023G3 | 201        |

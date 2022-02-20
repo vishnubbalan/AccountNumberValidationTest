@@ -16,6 +16,11 @@ namespace AccountNumberValidationTest
             ApiRequest requestData = new ApiRequest();
             requestData.bankAccount = bankAccNumber;
             string Data = JsonConvert.SerializeObject(requestData);
+            Logger.AddLog("URL : " + URL);
+            Logger.AddLog("AuthXKey : " + AuthKey);
+            Logger.AddLog("Bank Account Number : " + bankAccNumber);
+            Logger.AddLog("");
+            Logger.AddLog("Request Body : " + Data);
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create(URL);
             request.Method = "POST";
             request.ContentType = "application/json";
@@ -38,7 +43,11 @@ namespace AccountNumberValidationTest
                     Console.Out.WriteLine(response);
                     HttpStatusCode statusCode = webResponse.StatusCode;
                     responceObj.statusCode = (int)statusCode;
-                    Console.WriteLine("Response Code: " + (int)statusCode + " - " + statusCode.ToString());
+                    Console.WriteLine("Response Code : " + (int)statusCode + " - " + statusCode.ToString());
+                    Logger.AddLog("Responce Status Code : " + (int)statusCode);
+                    Logger.AddLog("");
+                    Logger.AddLog("Responce Body : " + response);
+                    
                 }
             }
             catch (WebException e)
@@ -51,6 +60,10 @@ namespace AccountNumberValidationTest
                 responceObj.statusCode = (int)statusCode;
                 Console.WriteLine(response);
                 Console.WriteLine("Response Code: " + (int)statusCode + " - " + statusCode.ToString());
+                Logger.AddLog("Responce Status Code : " + (int)statusCode);
+                Logger.AddLog("");
+                Logger.AddLog("Responce Body : " + response);
+                Logger.AddLog("");
             }
             return responceObj;
         }
