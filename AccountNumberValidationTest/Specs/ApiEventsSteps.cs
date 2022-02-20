@@ -40,5 +40,12 @@ namespace AccountNumberValidationTest.Specs
             else
                 Assert.Fail("Exception occured in responce");
         }
+
+        [Then(@"Responce StatusCode is (.*)")]
+        public void ThenResponceStatusCodeIs(int code)
+        {
+            Assert.IsTrue(apiResponce.statusCode.Equals(code), "Mismatch in responce Status code");
+        }
+
     }
 }

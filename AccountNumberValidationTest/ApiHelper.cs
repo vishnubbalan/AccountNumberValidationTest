@@ -37,6 +37,7 @@ namespace AccountNumberValidationTest
                     responceObj = (ApiResponce)JsonConvert.DeserializeObject(response, typeof(ApiResponce));
                     Console.Out.WriteLine(response);
                     HttpStatusCode statusCode = webResponse.StatusCode;
+                    responceObj.statusCode = (int)statusCode;
                     Console.WriteLine("Response Code: " + (int)statusCode + " - " + statusCode.ToString());
                 }
             }

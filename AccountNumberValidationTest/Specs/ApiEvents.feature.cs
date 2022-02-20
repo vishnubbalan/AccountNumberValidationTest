@@ -91,7 +91,7 @@ namespace AccountNumberValidationTest.Specs
             testRunner.CollectScenarioErrors();
         }
         
-        public virtual void BankAccountVerification_PositiceCase(string scenarioId, string xAuthKey, string accountNumber, string isValid, string[] exampleTags)
+        public virtual void BankAccountVerification_PositiceCase(string scenarioId, string xAuthKey, string accountNumber, string isValid, string statusCode, string[] exampleTags)
         {
             string[] @__tags = new string[] {
                     "BankAccountNumberVerification"};
@@ -105,6 +105,7 @@ namespace AccountNumberValidationTest.Specs
             argumentsOfScenario.Add("XAuthKey", xAuthKey);
             argumentsOfScenario.Add("AccountNumber", accountNumber);
             argumentsOfScenario.Add("isValid", isValid);
+            argumentsOfScenario.Add("StatusCode", statusCode);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("BankAccountVerification_PositiceCase", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
 #line 5
 this.ScenarioInitialize(scenarioInfo);
@@ -138,6 +139,9 @@ this.ScenarioInitialize(scenarioInfo);
 #line 9
  testRunner.Then(string.Format("isValid in Responce is {0}", isValid), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
+#line 10
+ testRunner.And(string.Format("Responce StatusCode is {0}", statusCode), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
             }
             this.ScenarioCleanup();
         }
@@ -151,10 +155,11 @@ this.ScenarioInitialize(scenarioInfo);
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:XAuthKey", "Q7DaxRnFls6IpwSW1SQ2FaTFOf7UdReAFNoKY68L")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:AccountNumber", "GB09HAOE91311808002317")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:isValid", "True")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:StatusCode", "200")]
         public virtual void BankAccountVerification_PositiceCase_ValidAccNumber()
         {
 #line 5
-this.BankAccountVerification_PositiceCase("ValidAccNumber", "Q7DaxRnFls6IpwSW1SQ2FaTFOf7UdReAFNoKY68L", "GB09HAOE91311808002317", "True", ((string[])(null)));
+this.BankAccountVerification_PositiceCase("ValidAccNumber", "Q7DaxRnFls6IpwSW1SQ2FaTFOf7UdReAFNoKY68L", "GB09HAOE91311808002317", "True", "200", ((string[])(null)));
 #line hidden
         }
         
@@ -167,10 +172,11 @@ this.BankAccountVerification_PositiceCase("ValidAccNumber", "Q7DaxRnFls6IpwSW1SQ
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:XAuthKey", "Q7DaxRnFls6IpwSW1SQ2FaTFOf7UdReAFNoKY68L")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:AccountNumber", "GB09HAOE913118080023G3")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:isValid", "False")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:StatusCode", "200")]
         public virtual void BankAccountVerification_PositiceCase_InValidAccNumber()
         {
 #line 5
-this.BankAccountVerification_PositiceCase("InValidAccNumber", "Q7DaxRnFls6IpwSW1SQ2FaTFOf7UdReAFNoKY68L", "GB09HAOE913118080023G3", "False", ((string[])(null)));
+this.BankAccountVerification_PositiceCase("InValidAccNumber", "Q7DaxRnFls6IpwSW1SQ2FaTFOf7UdReAFNoKY68L", "GB09HAOE913118080023G3", "False", "200", ((string[])(null)));
 #line hidden
         }
     }
