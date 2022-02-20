@@ -1,8 +1,8 @@
 ﻿Feature: ApiEvents
-	Simple calculator for adding two numbers
+	
 
 @BankAccountNumberVerification_PositiveScenario
-Scenario: BankAccountVerification_PositiceCase
+Scenario: BankAccountVerification_PositiveCase
 	Given I have API URL https://api-test.afterpay.dev/api/v3/validate/bank-account
 	And the XAuthKey is <XAuthKey>
 	When I verify the AccountNumber <AccountNumber>
