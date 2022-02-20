@@ -35,10 +35,21 @@ namespace AccountNumberValidationTest.Specs
         [Then(@"isValid in Responce is (.*)")]
         public void ThenIsValidInResponceIs(string isTrue)
         {
-            if (apiResponce != null)
-                Assert.IsTrue(apiResponce.isValid.ToString().Equals(isTrue), "Mismatch in isValid responce");
-            else
-                Assert.Fail("Exception occured in responce");
+            if (!String.IsNullOrEmpty(isTrue))
+            {
+                if (apiResponce != null)
+                    Assert.IsTrue(apiResponce.isValid.ToString().Equals(isTrue), "Mismatch in isValid responce");
+                else
+                    Assert.Fail("Exception occured in responce");
+            }
+            
         }
+
+        [Then(@"Responce StatusCode is (.*)")]
+        public void ThenResponceStatusCodeIs(int code)
+        {
+            Assert.IsTrue(apiResponce.statusCode.Equals(code), "Mismatch in responce Status code");
+        }
+
     }
 }

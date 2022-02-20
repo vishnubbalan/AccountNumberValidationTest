@@ -10,6 +10,7 @@ namespace AccountNumberValidationTest
     {
         public bool isValid { get; set; }
         public Riskcheckmessage[] riskCheckMessages { get; set; }
+        public int statusCode {get; set;}
     }
     public class Riskcheckmessage
     {
